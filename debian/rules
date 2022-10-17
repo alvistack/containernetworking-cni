@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_auto_build:
+	mkdir -p bin
+	set -ex && \
+		export CGO_ENABLED=1 && \
+		go build \
+			-mod vendor -buildmode pie -v \
+			-ldflags "-s -w" \
+			-o ./bin/cnitool ./cnitool && \
+		go build \
+			-mod vendor -buildmode pie -v \
+			-ldflags "-s -w" \
+			-o ./bin/noop ./plugins/test/noop && \
+		go build \
+			-mod vendor -buildmode pie -v \
+			-ldflags "-s -w" \
+			-o ./bin/sleep ./plugins/test/sleep
+
+override_dh_auto_install:
+	install -Dpm755 -d debian/tmp/etc/cni/net.d
+	install -Dpm755 -d debian/tmp/usr/sbin
+	install -Dpm755 -d debian/tmp/usr/libexec/cni
+	install -Dpm644 -t debian/tmp/etc/cni/net.d 99-loopback.conf
+	install -Dpm755 -t debian/tmp/usr/sbin bin/cnitool
+	install -Dpm755 -t debian/tmp/usr/libexec/cni bin/noop
+	install -Dpm755 -t debian/tmp/usr/libexec/cni bin/sleep
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@
