@@ -1,0 +1,3 @@
+etc/cni/net.d/99-loopback.conf
+usr/libexec/cni/*
+usr/sbin/*
