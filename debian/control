@@ -1,0 +1,26 @@
+Source: containernetworking
+Section: devel
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+Homepage: https://github.com/containernetworking/cni/tags
+Vcs-Browser: https://github.com/alvistack/containernetworking
+Vcs-Git: https://github.com/alvistack/containernetworking.git
+Build-Depends:
+ debhelper,
+ debhelper-compat (= 10),
+ golang-1.22,
+
+Package: containernetworking
+Architecture: amd64
+Description: Container Network Interface - networking for Linux containers
+ CNI (Container Network Interface), a Cloud Native Computing Foundation
+ project, consists of a specification and libraries for writing plugins
+ to configure network interfaces in Linux containers, along with a number
+ of supported plugins. CNI concerns itself only with network connectivity
+ of containers and removing allocated resources when the container is
+ deleted. Because of this focus, CNI has a wide range of support and the
+ specification is simple to implement.
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
