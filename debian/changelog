@@ -1,0 +1,5 @@
+containernetworking (100:1.2.3-1) UNRELEASED; urgency=medium
+
+  * https://github.com/containernetworking/cni/releases/tag/v1.2.3
+
+ -- Wong Hoi Sing Edison <hswong3i@pantarei-design.com>  Tue, 23 Jul 2024 11:36:31 +0800
