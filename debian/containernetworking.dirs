@@ -1,0 +1,4 @@
+etc/cni
+etc/cni/net.d
+opt/cni
+opt/cni/bin
