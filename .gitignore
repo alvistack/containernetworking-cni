@@ -3,3 +3,4 @@
 .vagrant
 release-*
 cnitool/cnitool
+vendor/

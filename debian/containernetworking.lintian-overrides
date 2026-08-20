@@ -1,0 +1,5 @@
+containernetworking: initial-upload-closes-no-bugs
+containernetworking: no-copyright-file
+containernetworking: no-manual-page
+containernetworking: shared-library-lacks-prerequisites
+containernetworking: statically-linked-binary
